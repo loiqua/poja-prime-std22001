@@ -9,6 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigInteger;
+import java.util.Random;
+
 @PojaGenerated
 @RestController
 @AllArgsConstructor
@@ -25,4 +28,11 @@ public class PingController {
   public String ping() {
     return "pong";
   }
+  @GetMapping("/new-prime")
+
+  public String getNewPrime() {
+    BigInteger Prime = BigInteger.probablePrime(10_000, new Random());
+    return Prime.toString();
+  }
 }
+
